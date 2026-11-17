@@ -400,6 +400,37 @@ html:not(.anim) .btn[data-cfg="tel"] svg{animation:none!important}
   #site-header.is-scrolled{background:rgba(10,10,12,.94)}
   #sticky-bar{background:rgba(10,10,12,.97)}
 }
+
+/* ---- nav: aggressive "Oferta" ---- */
+.nav-offer{position:relative;display:inline-flex;align-items:center;padding:9px 20px;border-radius:999px;font-weight:800;font-size:.95rem;letter-spacing:.01em;color:#04181a!important;background:linear-gradient(135deg,#00f2fe,#7dffb0);box-shadow:0 6px 22px -6px rgba(0,242,254,.9);animation:navPulse 2.2s infinite;transition:transform .2s}
+.nav-offer:hover{transform:translateY(-2px) scale(1.05)}
+.nav-arrow{position:absolute;left:50%;top:100%;width:26px;height:26px;margin:2px 0 0 -13px;color:#00f2fe;filter:drop-shadow(0 0 7px rgba(0,242,254,.95));animation:arrowBob 1s ease-in-out infinite;pointer-events:none}
+@keyframes navPulse{0%{box-shadow:0 0 0 0 rgba(0,242,254,.65),0 6px 22px -6px rgba(0,242,254,.9)}70%,100%{box-shadow:0 0 0 12px rgba(0,242,254,0),0 6px 22px -6px rgba(0,242,254,.9)}}
+@keyframes arrowBob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+.nav-offer-m{display:none}
+@media (max-width:1023px){
+  .nav-offer-m{display:inline-flex;padding:7px 13px;font-size:.8rem;margin-left:auto}
+}
+@media (max-width:420px){
+  .lang-btn{min-width:34px;padding:0 .3rem}
+  #site-header .font-display>span{display:none}
+}
+/* ---- demo heading: loud ---- */
+.dm-head{max-width:64rem;margin:0 auto;text-align:center}
+.dm-kick{display:inline-flex;align-items:center;gap:10px;padding:11px 20px;border-radius:999px;font:800 13px/1 Montserrat,Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(255,40,70,.16);border:1.5px solid #ff4d6d;animation:dmKick 2s infinite}
+.dm-live{width:11px;height:11px;border-radius:50%;background:#ff3355;box-shadow:0 0 12px #ff3355;animation:dmBlink 1s infinite}
+@keyframes dmBlink{50%{opacity:.3}}
+@keyframes dmKick{0%{box-shadow:0 0 0 0 rgba(255,77,109,.55)}70%,100%{box-shadow:0 0 0 14px rgba(255,77,109,0)}}
+.dm-title{margin-top:18px;font:800 clamp(2.1rem,6.4vw,4rem)/1.06 Montserrat,Inter,sans-serif;letter-spacing:-.025em;color:#fff}
+.hl-n{color:#fff;white-space:nowrap;background:linear-gradient(transparent 56%,rgba(0,242,254,.6) 56%);padding:0 .12em;border-radius:3px}
+.dm-sub{max-width:44rem;margin:16px auto 0;font-size:clamp(1.1rem,3vw,1.4rem);line-height:1.45;font-weight:500;color:#f1f4f8}
+.dm-hint{margin-top:22px;display:inline-flex;align-items:center;gap:12px;font:800 1rem/1 Montserrat,Inter,sans-serif;color:#04181a;background:linear-gradient(135deg,#ffd166,#ff9f43);padding:12px 20px;border-radius:999px;box-shadow:0 10px 30px -10px rgba(255,159,67,.9)}
+.dm-hint svg{width:20px;height:20px;animation:arrowBob 1s ease-in-out infinite}
+html:not(.anim) .nav-offer,
+html:not(.anim) .nav-arrow,
+html:not(.anim) .dm-live,
+html:not(.anim) .dm-hint svg,
+html:not(.anim) .dm-kick{animation:none!important}
 </style>
 </head>
 <body>
@@ -411,9 +442,10 @@ html:not(.anim) .btn[data-cfg="tel"] svg{animation:none!important}
       <span class="font-display font-extrabold leading-none text-sm sm:text-base tracking-tight">CYRYL<br><span class="text-[10px] sm:text-xs font-semibold tracking-[.22em] text-silver">WEBDESIGN</span></span>
     </a>
 
-    <nav class="hidden lg:flex items-center gap-7 text-sm text-silver" aria-label="Main">
+    <a href="#products" class="nav-offer nav-offer-m"><span data-i18n="nav_products">Oferta</span><svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V5M5 11l7-7 7 7"/></svg></a>
+      <nav class="hidden lg:flex items-center gap-7 text-sm text-silver" aria-label="Main">
       <a href="#problem" class="hover:text-neon transition" data-i18n="nav_problem">Problem</a>
-      <a href="#products" class="hover:text-neon transition" data-i18n="nav_products">Oferta</a>
+      <a href="#products" class="nav-offer"><span data-i18n="nav_products">Oferta</span><svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V5M5 11l7-7 7 7"/></svg></a>
       <a href="#demo" class="hover:text-neon transition" data-i18n="nav_demo">Jak to działa</a>
       <a href="#proof" class="hover:text-neon transition" data-i18n="nav_proof">Opinie</a>
       <a href="#contact" class="hover:text-neon transition" data-i18n="nav_contact">Kontakt</a>
@@ -578,7 +610,7 @@ html:not(.anim) .btn[data-cfg="tel"] svg{animation:none!important}
         <h3 data-i18n="pr3_t">Jedna zła opinia</h3><p data-i18n="pr3_d">Niezadowolony klient pisze publicznie w Google, <b>zanim zdążysz zareagować</b>.</p></article>
     </div>
     <div class="pb-row">
-      <div class="pb-stat reveal"><strong data-i18n="pr_stat">do 80%</strong><div class="pb-bar"><i></i></div><p data-i18n="pr_stat_d">potencjalnych klientów <b>traci firma</b> z przestarzałą stroną i papierową wizytówką.</p></div>
+      <div class="pb-stat reveal"><strong data-i18n="pr_stat">do 80%</strong><div class="pb-bar"><i></i></div><p data-i18n="pr_stat_d">potencjalnych klientów <b>ucieka przez starą stronę</b>.</p></div>
       <div class="pb-sol reveal">
         <h3 data-i18n="sol_title">CYRYL WEBDESIGN zamyka wszystkie trzy luki</h3>
         <p data-i18n="sol_d">Jedna pracownia, jeden system: strona przyciąga, wizytówka NFC zostaje w telefonie klienta, a kod QR zbiera publicznie tylko dobre opinie.</p>
@@ -630,10 +662,11 @@ html:not(.anim) .btn[data-cfg="tel"] svg{animation:none!important}
 
 <section id="demo" class="relative py-16 md:py-24 border-t border-white/5">
   <div class="mx-auto max-w-7xl px-4 sm:px-6">
-    <div class="max-w-3xl mx-auto text-center reveal">
-      <p class="text-neon text-xs font-bold tracking-[.2em] uppercase mb-3" data-i18n="dm_kicker">Zobacz w akcji</p>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight" data-i18n="dm_title">Dotknij, zeskanuj, edytuj</h2>
-      <p class="mt-4 text-silver text-lg" data-i18n="dm_sub">Wypróbuj działające makiety. Tak widzi to Twój klient.</p>
+    <div class="dm-head reveal">
+      <span class="dm-kick"><i class="dm-live" aria-hidden="true"></i><span data-i18n="dm_kicker">Zobacz w akcji</span></span>
+      <h2 class="dm-title" data-i18n="dm_title"><mark class="hl-n">Dotknij</mark>, <mark class="hl-n">zeskanuj</mark>, <mark class="hl-n">edytuj</mark></h2>
+      <p class="dm-sub" data-i18n="dm_sub">Wypróbuj działające makiety. <b class="hl-a">Tak widzi to Twój klient.</b></p>
+      <div class="dm-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v16M5 13l7 7 7-7"/></svg><span data-i18n="dm_hint">Kliknij i sprawdź sam</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v16M5 13l7 7 7-7"/></svg></div>
     </div>
 
     <div class="mt-10 flex justify-center">
@@ -911,7 +944,7 @@ window.I18N = {
     pr1_t: 'Papierowe wizytówki giną', pr1_d: 'Większość ląduje w <b>szufladzie albo w koszu</b>, a numer nigdy nie trafia do telefonu.',
     pr2_t: 'Strona z 2015 roku', pr2_d: 'Wolne ładowanie, brak widoku na telefonie i <b>żadnego jasnego przycisku kontaktu</b>.',
     pr3_t: 'Jedna zła opinia', pr3_d: 'Niezadowolony klient pisze publicznie w Google, <b>zanim zdążysz zareagować</b>.',
-    pr_stat: 'do 80%', pr_stat_d: 'potencjalnych klientów <b>traci firma</b> z przestarzałą stroną i papierową wizytówką.',
+    pr_stat: 'do 80%', pr_stat_d: 'potencjalnych klientów <b>ucieka przez starą stronę</b>.',
     sol_title: 'CYRYL WEBDESIGN zamyka wszystkie trzy luki',
     sol_d: 'Jedna pracownia, jeden system: strona przyciąga, wizytówka NFC zostaje w telefonie klienta, a kod QR zbiera publicznie tylko dobre opinie.',
     sol1: 'Strona zaprojektowana pod konwersję', sol2: 'Kontakt zapisany jednym dotknięciem', sol3: 'Złe opinie trafiają do Ciebie, nie do Google',
@@ -923,7 +956,7 @@ window.I18N = {
     pd4_t: 'Edytowalne e-menu z panelem', pd4_d: 'Interaktywne menu dla restauracji, hoteli i usług. Pozycje, ceny i zdjęcia zmieniasz z telefonu w czasie rzeczywistym.',
     pd_more: 'Zapytaj o wycenę',
 
-    dm_kicker: 'Zobacz w akcji', dm_title: 'Dotknij, zeskanuj, edytuj', dm_sub: 'Wypróbuj działające makiety. Tak widzi to Twój klient.',
+    dm_kicker: 'Zobacz w akcji', dm_title: '<mark class="hl-n">Dotknij</mark>, <mark class="hl-n">zeskanuj</mark>, <mark class="hl-n">edytuj</mark>', dm_sub: 'Wypróbuj działające makiety. <b class="hl-a">Tak widzi to Twój klient.</b>',
     tab_nfc: 'NFC wizytówka', tab_review: 'Ochrona ocen', tab_menu: 'E-menu',
     nfc_btn: 'Przyłóż wizytówkę do telefonu', nfc_again: 'Powtórz', nfc_wait: 'Czekam na wizytówkę…',
     nfc_save: 'Zapisz kontakt (vCard)', nfc_saved: 'Kontakt zapisany', nfc_role: 'Strony, NFC i QR, ochrona ocen',
@@ -972,7 +1005,8 @@ window.I18N = {
     mini_call: 'Zadzwoń',
     pr_hook: 'Ilu klientów straciłeś w tym miesiącu, nawet o tym nie wiedząc?',
     sol_cta: 'Chcę to u siebie',
-    sp_cta: 'Chcę takie wyniki u siebie'
+    sp_cta: 'Chcę takie wyniki u siebie',
+    dm_hint: 'Kliknij i sprawdź sam'
   },
 
   uk: {
@@ -995,7 +1029,7 @@ window.I18N = {
     pr1_t: 'Паперові візитки губляться', pr1_d: 'Більшість потрапляє в <b>шухляду або смітник</b>, а номер ніколи не опиняється в телефоні.',
     pr2_t: 'Сайт із 2015 року', pr2_d: 'Повільне завантаження, незручно на телефоні й <b>жодної зрозумілої кнопки зв’язку</b>.',
     pr3_t: 'Один поганий відгук', pr3_d: 'Незадоволений клієнт пише публічно в Google, <b>перш ніж ви встигнете відреагувати</b>.',
-    pr_stat: 'до 80%', pr_stat_d: 'потенційних клієнтів <b>втрачає бізнес</b> із застарілим сайтом і паперовою візиткою.',
+    pr_stat: 'до 80%', pr_stat_d: 'потенційних клієнтів <b>тікає через старий сайт</b>.',
     sol_title: 'CYRYL WEBDESIGN закриває всі три прогалини',
     sol_d: 'Одна студія, одна система: сайт приваблює, NFC-візитка залишається в телефоні клієнта, а QR-код публічно збирає лише хороші відгуки.',
     sol1: 'Сайт, спроєктований під конверсію', sol2: 'Контакт збережено одним дотиком', sol3: 'Погані відгуки потрапляють до вас, а не в Google',
@@ -1007,7 +1041,7 @@ window.I18N = {
     pd4_t: 'Електронне меню з адмінкою', pd4_d: 'Інтерактивні меню для ресторанів, готелів і сфери послуг. Позиції, ціни та фото змінюєте з телефону в реальному часі.',
     pd_more: 'Дізнатися вартість',
 
-    dm_kicker: 'Подивіться в дії', dm_title: 'Торкніться, скануйте, редагуйте', dm_sub: 'Спробуйте робочі макети. Так це бачить ваш клієнт.',
+    dm_kicker: 'Подивіться в дії', dm_title: '<mark class="hl-n">Торкніться</mark>, <mark class="hl-n">скануйте</mark>, <mark class="hl-n">редагуйте</mark>', dm_sub: 'Спробуйте робочі макети. <b class="hl-a">Так це бачить ваш клієнт.</b>',
     tab_nfc: 'NFC-візитка', tab_review: 'Захист оцінок', tab_menu: 'E-меню',
     nfc_btn: 'Прикласти візитку до телефону', nfc_again: 'Ще раз', nfc_wait: 'Чекаю на візитку…',
     nfc_save: 'Зберегти контакт (vCard)', nfc_saved: 'Контакт збережено', nfc_role: 'Сайти, NFC і QR, захист оцінок',
@@ -1056,7 +1090,8 @@ window.I18N = {
     mini_call: 'Зателефонувати',
     pr_hook: 'Скільком клієнтам ви не відповіли цього місяця, навіть не знаючи про це?',
     sol_cta: 'Хочу так у себе',
-    sp_cta: 'Хочу такі результати'
+    sp_cta: 'Хочу такі результати',
+    dm_hint: 'Натисніть і перевірте самі'
   },
 
   ru: {
@@ -1079,7 +1114,7 @@ window.I18N = {
     pr1_t: 'Бумажные визитки теряются', pr1_d: 'Большинство попадает в <b>ящик или мусорку</b>, а номер так и не оказывается в телефоне.',
     pr2_t: 'Сайт из 2015 года', pr2_d: 'Медленная загрузка, неудобно на телефоне и <b>ни одной понятной кнопки связи</b>.',
     pr3_t: 'Один плохой отзыв', pr3_d: 'Недовольный клиент пишет публично в Google, <b>пока вы не успели среагировать</b>.',
-    pr_stat: 'до 80%', pr_stat_d: 'потенциальных клиентов <b>теряет бизнес</b> с устаревшим сайтом и бумажной визиткой.',
+    pr_stat: 'до 80%', pr_stat_d: 'потенциальных клиентов <b>уходит из-за старого сайта</b>.',
     sol_title: 'CYRYL WEBDESIGN закрывает все три пробела',
     sol_d: 'Одна студия, одна система: сайт привлекает, NFC-визитка остаётся в телефоне клиента, а QR-код публично собирает только хорошие отзывы.',
     sol1: 'Сайт, спроектированный под конверсию', sol2: 'Контакт сохранён одним касанием', sol3: 'Плохие отзывы попадают к вам, а не в Google',
@@ -1091,7 +1126,7 @@ window.I18N = {
     pd4_t: 'Электронное меню с админкой', pd4_d: 'Интерактивные меню для ресторанов, отелей и сферы услуг. Позиции, цены и фото меняете с телефона в реальном времени.',
     pd_more: 'Узнать стоимость',
 
-    dm_kicker: 'Посмотрите в деле', dm_title: 'Коснитесь, сканируйте, редактируйте', dm_sub: 'Попробуйте рабочие макеты. Так это видит ваш клиент.',
+    dm_kicker: 'Посмотрите в деле', dm_title: '<mark class="hl-n">Коснитесь</mark>, <mark class="hl-n">сканируйте</mark>, <mark class="hl-n">редактируйте</mark>', dm_sub: 'Попробуйте рабочие макеты. <b class="hl-a">Так это видит ваш клиент.</b>',
     tab_nfc: 'NFC-визитка', tab_review: 'Защита оценок', tab_menu: 'E-меню',
     nfc_btn: 'Приложить визитку к телефону', nfc_again: 'Ещё раз', nfc_wait: 'Жду визитку…',
     nfc_save: 'Сохранить контакт (vCard)', nfc_saved: 'Контакт сохранён', nfc_role: 'Сайты, NFC и QR, защита оценок',
@@ -1140,7 +1175,8 @@ window.I18N = {
     mini_call: 'Позвонить',
     pr_hook: 'Скольким клиентам вы не ответили в этом месяце, даже не зная об этом?',
     sol_cta: 'Хочу так у себя',
-    sp_cta: 'Хочу такие результаты'
+    sp_cta: 'Хочу такие результаты',
+    dm_hint: 'Нажмите и проверьте сами'
   },
 
   en: {
@@ -1163,7 +1199,7 @@ window.I18N = {
     pr1_t: 'Paper cards get lost', pr1_d: 'Most end up in a <b>drawer or the bin</b>, and the number never reaches the phone.',
     pr2_t: 'A website from 2015', pr2_d: 'Slow loading, broken on phones and <b>no clear contact button</b>.',
     pr3_t: 'One bad review', pr3_d: 'An unhappy customer posts publicly on Google <b>before you can react</b>.',
-    pr_stat: 'up to 80%', pr_stat_d: 'of potential customers <b>lost by businesses</b> with an outdated site and a paper card.',
+    pr_stat: 'up to 80%', pr_stat_d: 'of potential customers <b>leave because of an old website</b>.',
     sol_title: 'CYRYL WEBDESIGN closes all three gaps',
     sol_d: 'One studio, one system: the site attracts, the NFC card stays in the customer’s phone, and the QR code publicly collects only the good reviews.',
     sol1: 'A site designed for conversion', sol2: 'Contact saved with one tap', sol3: 'Bad reviews reach you, not Google',
@@ -1175,7 +1211,7 @@ window.I18N = {
     pd4_t: 'Editable e-menu with admin panel', pd4_d: 'Interactive menus for restaurants, hotels and services. Change items, prices and photos from your phone in real time.',
     pd_more: 'Ask for a quote',
 
-    dm_kicker: 'See it in action', dm_title: 'Tap, scan, edit', dm_sub: 'Try the working mockups. This is what your customer sees.',
+    dm_kicker: 'See it in action', dm_title: '<mark class="hl-n">Tap</mark>, <mark class="hl-n">scan</mark>, <mark class="hl-n">edit</mark>', dm_sub: 'Try the working mockups. <b class="hl-a">This is what your customer sees.</b>',
     tab_nfc: 'NFC card', tab_review: 'Review protection', tab_menu: 'E-menu',
     nfc_btn: 'Tap the card on the phone', nfc_again: 'Replay', nfc_wait: 'Waiting for a card…',
     nfc_save: 'Save contact (vCard)', nfc_saved: 'Contact saved', nfc_role: 'Websites, NFC & QR, review protection',
@@ -1224,7 +1260,8 @@ window.I18N = {
     mini_call: 'Call us',
     pr_hook: 'How many customers did you lose this month without even knowing?',
     sol_cta: 'I want this for my business',
-    sp_cta: 'I want results like these'
+    sp_cta: 'I want results like these',
+    dm_hint: 'Click and see for yourself'
   }
 };
 
